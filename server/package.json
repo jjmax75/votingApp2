@@ -1,0 +1,30 @@
+{
+  "name": "voting-app-server",
+  "version": "1.0.0",
+  "description": "Server for voting app, provides API endpoints to Mongo DB",
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "4.0.0",
+    "express": "4.15.2",
+    "morgan": "1.8.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjmax75/votingApp2.git"
+  },
+  "keywords": [
+    "server",
+    "node"
+  ],
+  "author": "John Behan <behanj@gmail.com> (http://boxitoff.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjmax75/votingApp2/issues"
+  },
+  "homepage": "https://github.com/jjmax75/votingApp2#readme"
+}
