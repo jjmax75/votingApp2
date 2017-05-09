@@ -9,6 +9,4 @@ const UserSchema = new Schema({
   'profiles': { type: Schema.Types.Mized }
 });
 
-const UserModel = mongoose.model( 'User', UserSchema );
-
-module.exports = UserModel;
+module.exports = mongoose.model( 'User', UserSchema );

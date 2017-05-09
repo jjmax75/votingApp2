@@ -7,6 +7,4 @@ const VotingSchema = new Schema({
   'totals': { type: Schema.Types.Mixed }
 });
 
-const VotingModel = mongoose.model( 'Voting', VotingSchema );
-
-module.exports = VotingModel;
+module.exports = mongoose.model( 'Voting', VotingSchema );
