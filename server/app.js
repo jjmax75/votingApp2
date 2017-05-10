@@ -1,46 +1,26 @@
 const express = require( 'express' );
-const router = express.Router();
+const bodyParser = require( 'body-parser' );
 const mongoose = require( 'mongoose' );
 const morgan = require( 'morgan' );
 const app = express();
-const bodyParser = require( 'body-parser' );
 
 // Environment
 require( 'dotenv' ).config()
 const port = process.env.PORT || 8080;
 
 // Routes
-const VotingRoutes = require( './app/router/voting.routes' );
+const routes = require( './app/router/index' );
 
 // DB
 process.env.NODE_ENV === 'test' ?
   mongoose.connect( process.env.TEST_DB_URI ) :
   mongoose.connect( process.env.DB_URI );
 
-// Models
-const VotingModel = require( './app/models/voting.model' );
-
 // Modules
 app.use( morgan( 'dev' ) );
-app.use( '/api', router );
 app.use( bodyParser.urlencoded({ extended: true }) );
 app.use( bodyParser.json() );
-
-// Routing
-router.use( ( req, res, next ) => {
-  console.log( 'request being processed' );
-  next()
-});
-
-router.get( '/', (req, res) => {
-  res.json( { message: 'API is up and running' } );
-});
-
-router.route( '/questions' )
-  .get( VotingRoutes.getAllQuestions );
-
-router.route( '/question/:question_id' )
-  .get( VotingRoutes.getQuestion );
+routes( app );
 
 app.listen( port );
 

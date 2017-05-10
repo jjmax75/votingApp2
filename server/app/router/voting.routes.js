@@ -1,4 +1,3 @@
-const mongoose = require( 'mongoose' );
 const VotingModel = require( './../models/voting.model' );
 
 // get all questions
