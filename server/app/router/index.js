@@ -19,7 +19,8 @@ module.exports = app => {
 
   router.route( '/users/:email?' )
     .get( UserRoutes.getUser )
-    .post( UserRoutes.addNewUser );
+    .post( UserRoutes.addNewUser )
+    .put( UserRoutes.updateUser );
 
   router.route( '/questions' )
     .get( VotingRoutes.getAllQuestions );
