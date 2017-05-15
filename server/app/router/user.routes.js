@@ -11,4 +11,12 @@ const addNewUser = ( req, res ) => {
   });
 };
 
-module.exports = { addNewUser };
+// get a user by email
+const getUser = ( req, res ) => {
+  UserModel.findOne( { email: req.params.email }, ( err, user ) => {
+    if ( err ) res.send( err );
+    res.json( user );
+  })
+};
+
+module.exports = { addNewUser, getUser };

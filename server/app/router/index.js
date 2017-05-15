@@ -17,7 +17,8 @@ module.exports = app => {
    res.json( { message: 'API is up and running' } );
   });
 
-  router.route( '/users' )
+  router.route( '/users/:email?' )
+    .get( UserRoutes.getUser )
     .post( UserRoutes.addNewUser );
 
   router.route( '/questions' )
