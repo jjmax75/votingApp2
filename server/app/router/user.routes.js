@@ -33,4 +33,12 @@ const updateUser = ( req, res ) => {
   })
 };
 
-module.exports = { addNewUser, getUser, updateUser };
+//delete a user
+const deleteUser = ( req, res ) => {
+  UserModel.remove( { email: req.params.email }, ( err, bear ) => {
+    if ( err ) res.send( err );
+    res.json({ message: 'Successfully deleted' });
+  });
+};
+
+module.exports = { addNewUser, getUser, updateUser, deleteUser };

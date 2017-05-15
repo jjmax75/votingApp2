@@ -18,6 +18,7 @@ module.exports = app => {
   });
 
   router.route( '/users/:email?' )
+    .delete( UserRoutes.deleteUser )
     .get( UserRoutes.getUser )
     .post( UserRoutes.addNewUser )
     .put( UserRoutes.updateUser );
